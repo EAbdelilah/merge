@@ -1,0 +1,1148 @@
+{
+	"positionsABI": [
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_priceFeed",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_liquidityPoolFactory",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_liquidityPoolFactoryUniswapV3",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_nonfungiblePositionManager",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_uniswapV3Helper",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_liquidationReward",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_amount",
+					"type": "uint256"
+				}
+			],
+			"name": "Positions__AMOUNT_TO_SMALL",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint8",
+					"name": "_leverage",
+					"type": "uint8"
+				}
+			],
+			"name": "Positions__LEVERAGE_NOT_IN_RANGE",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_limitPrice",
+					"type": "uint256"
+				}
+			],
+			"name": "Positions__LIMIT_ORDER_PRICE_NOT_CONCISTENT",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_token0",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_token1",
+					"type": "address"
+				}
+			],
+			"name": "Positions__NO_PRICE_FEED",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_v3Pool",
+					"type": "address"
+				}
+			],
+			"name": "Positions__POOL_NOT_OFFICIAL",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_posId",
+					"type": "uint256"
+				}
+			],
+			"name": "Positions__POSITION_NOT_LIQUIDABLE_YET",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_posId",
+					"type": "uint256"
+				}
+			],
+			"name": "Positions__POSITION_NOT_OPEN",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_trader",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_posId",
+					"type": "uint256"
+				}
+			],
+			"name": "Positions__POSITION_NOT_OWNED",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_stopLossPrice",
+					"type": "uint256"
+				}
+			],
+			"name": "Positions__STOP_LOSS_ORDER_PRICE_NOT_CONCISTENT",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_token",
+					"type": "address"
+				}
+			],
+			"name": "Positions__TOKEN_NOT_SUPPORTED",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_token",
+					"type": "address"
+				}
+			],
+			"name": "Positions__TOKEN_NOT_SUPPORTED_ON_MARGIN",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenBorrowed",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenReceived",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "state",
+					"type": "uint256"
+				}
+			],
+			"name": "Positions__TOKEN_RECEIVED_NOT_CONCISTENT",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_posId",
+					"type": "uint256"
+				}
+			],
+			"name": "Positions__WAIT_FOR_LIMIT_ORDER_TO_COMPLET",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "R",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "T",
+			"type": "error"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "approved",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "Approval",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "operator",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "bool",
+					"name": "approved",
+					"type": "bool"
+				}
+			],
+			"name": "ApprovalForAll",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "previousOwner",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "newOwner",
+					"type": "address"
+				}
+			],
+			"name": "OwnershipTransferred",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "Transfer",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "BORROW_FEE",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "BORROW_FEE_EVERY_HOURS",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "LIQUIDATION_REWARD",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "LIQUIDATION_THRESHOLD",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "MAX_LEVERAGE",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "MIN_POSITION_AMOUNT_IN_USD",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "ORACLE_DECIMALS_USD",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "approve",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				}
+			],
+			"name": "balanceOf",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_trader",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_posId",
+					"type": "uint256"
+				}
+			],
+			"name": "closePosition",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_trader",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_posId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_newStopLossPrice",
+					"type": "uint256"
+				}
+			],
+			"name": "editPosition",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "getApproved",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getLiquidablePositions",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "",
+					"type": "uint256[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_posId",
+					"type": "uint256"
+				}
+			],
+			"name": "getPositionParams",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "baseToken_",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "quoteToken_",
+					"type": "address"
+				},
+				{
+					"internalType": "uint128",
+					"name": "positionSize_",
+					"type": "uint128"
+				},
+				{
+					"internalType": "uint64",
+					"name": "timestamp_",
+					"type": "uint64"
+				},
+				{
+					"internalType": "bool",
+					"name": "isShort_",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint8",
+					"name": "leverage_",
+					"type": "uint8"
+				},
+				{
+					"internalType": "uint256",
+					"name": "breakEvenLimit_",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint160",
+					"name": "limitPrice_",
+					"type": "uint160"
+				},
+				{
+					"internalType": "uint256",
+					"name": "stopLossPrice_",
+					"type": "uint256"
+				},
+				{
+					"internalType": "int128",
+					"name": "currentPnL_",
+					"type": "int128"
+				},
+				{
+					"internalType": "int128",
+					"name": "collateralLeft_",
+					"type": "int128"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_posId",
+					"type": "uint256"
+				}
+			],
+			"name": "getPositionState",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_traderAdd",
+					"type": "address"
+				}
+			],
+			"name": "getTraderPositions",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "",
+					"type": "uint256[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "operator",
+					"type": "address"
+				}
+			],
+			"name": "isApprovedForAll",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_liquidator",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_posId",
+					"type": "uint256"
+				}
+			],
+			"name": "liquidatePosition",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "liquidityPoolFactory",
+			"outputs": [
+				{
+					"internalType": "contract LiquidityPoolFactory",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "liquidityPoolFactoryUniswapV3",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "name",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "nonfungiblePositionManager",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "operator",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "",
+					"type": "bytes"
+				}
+			],
+			"name": "onERC721Received",
+			"outputs": [
+				{
+					"internalType": "bytes4",
+					"name": "",
+					"type": "bytes4"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_trader",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_token0",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_token1",
+					"type": "address"
+				},
+				{
+					"internalType": "uint24",
+					"name": "_fee",
+					"type": "uint24"
+				},
+				{
+					"internalType": "bool",
+					"name": "_isShort",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint8",
+					"name": "_leverage",
+					"type": "uint8"
+				},
+				{
+					"internalType": "uint128",
+					"name": "_amount",
+					"type": "uint128"
+				},
+				{
+					"internalType": "uint160",
+					"name": "_limitPrice",
+					"type": "uint160"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_stopLossPrice",
+					"type": "uint256"
+				}
+			],
+			"name": "openPosition",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "openPositions",
+			"outputs": [
+				{
+					"internalType": "contract UniswapV3Pool",
+					"name": "v3Pool",
+					"type": "address"
+				},
+				{
+					"internalType": "contract ERC20",
+					"name": "baseToken",
+					"type": "address"
+				},
+				{
+					"internalType": "contract ERC20",
+					"name": "quoteToken",
+					"type": "address"
+				},
+				{
+					"internalType": "uint128",
+					"name": "collateralSize",
+					"type": "uint128"
+				},
+				{
+					"internalType": "uint128",
+					"name": "positionSize",
+					"type": "uint128"
+				},
+				{
+					"internalType": "uint256",
+					"name": "initialPrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint128",
+					"name": "liquidationReward",
+					"type": "uint128"
+				},
+				{
+					"internalType": "uint64",
+					"name": "timestamp",
+					"type": "uint64"
+				},
+				{
+					"internalType": "bool",
+					"name": "isShort",
+					"type": "bool"
+				},
+				{
+					"internalType": "bool",
+					"name": "isBaseToken0",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint8",
+					"name": "leverage",
+					"type": "uint8"
+				},
+				{
+					"internalType": "uint256",
+					"name": "totalBorrow",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "hourlyFees",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "breakEvenLimit",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint160",
+					"name": "limitPrice",
+					"type": "uint160"
+				},
+				{
+					"internalType": "uint256",
+					"name": "stopLossPrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenIdLiquidity",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "owner",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "ownerOf",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "posId",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "priceFeed",
+			"outputs": [
+				{
+					"internalType": "contract PriceFeedL1",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "renounceOwnership",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "safeTransferFrom",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "data",
+					"type": "bytes"
+				}
+			],
+			"name": "safeTransferFrom",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "operator",
+					"type": "address"
+				},
+				{
+					"internalType": "bool",
+					"name": "approved",
+					"type": "bool"
+				}
+			],
+			"name": "setApprovalForAll",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes4",
+					"name": "interfaceId",
+					"type": "bytes4"
+				}
+			],
+			"name": "supportsInterface",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "symbol",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "tokenURI",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "totalNbPos",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "transferFrom",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "newOwner",
+					"type": "address"
+				}
+			],
+			"name": "transferOwnership",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "uniswapV3Helper",
+			"outputs": [
+				{
+					"internalType": "contract UniswapV3Helper",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}
