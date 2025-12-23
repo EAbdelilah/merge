@@ -1,32 +1,45 @@
 {
-  "name": "new-mini-app-quickstart",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@coinbase/onchainkit": "latest",
-    "@farcaster/miniapp-sdk": "^0.1.8",
-    "@tanstack/react-query": "^5.81.5",
-    "next": "15.3.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "viem": "^2.31.6",
-    "wagmi": "^2.16.3"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@farcaster/quick-auth": "^0.0.7",
-    "@next/eslint-plugin-next": "^15.3.4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.4",
-    "typescript": "^5"
-  }
+	"name": "uniswap_max_front",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@rainbow-me/rainbowkit": "^1.0.1",
+		"@react-three/drei": "^9.56.5",
+		"@react-three/fiber": "^8.12.0",
+		"@types/node": "20.2.1",
+		"@types/react": "^18.2.7",
+		"@types/react-dom": "18.2.4",
+		"@types/three": "^0.150.0",
+		"autoprefixer": "10.4.14",
+		"caniuse-lite": "^1.0.30001723",
+		"daisyui": "^3.0.0",
+		"eslint": "8.41.0",
+		"eslint-config-next": "13.4.3",
+		"ethers": "^5",
+		"framer-motion": "^10.9.2",
+		"glsl-random": "^0.0.5",
+		"next": "13.4.3",
+		"next-pwa": "^5.6.0",
+		"postcss": "8.4.23",
+		"rc-slider": "^10.2.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"shadergradient": "^1.1.5",
+		"tailwindcss": "3.3.2",
+		"three": "^0.150.1",
+		"three-stdlib": "^2.21.6",
+		"typescript": "5.0.4",
+		"viem": "^0.3.50",
+		"wagmi": "^1.1.0"
+	},
+	"devDependencies": {
+		"encoding": "^0.1.13",
+		"sass": "^1.62.1"
+	}
 }
