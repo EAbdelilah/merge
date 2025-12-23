@@ -9,7 +9,7 @@ import { networkConfig } from "../../helper-config.js";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
 	const pathname = usePathname();
-	
+
 	return (
 		<div className="w-screen" style={{ height: "100lvh" }}>
 			<GradientCanvas>

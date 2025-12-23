@@ -90,7 +90,7 @@ const networkConfig = {
                 dec: "6",
                 tvl: "0",
             },
-            
+
         ],
         pool: {
             WBTC: {
@@ -117,7 +117,7 @@ const networkConfig = {
                 dec: "6",
                 tvl: "0",
             },
-            
+
         },
     },
 };

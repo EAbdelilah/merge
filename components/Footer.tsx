@@ -43,7 +43,7 @@ export default function Footer() {
 				<div className="flex flex-col justify-center gap-2 items-center text-neutral-400 text-xs">
 					<p>
 						<a href="https://chain.link/hackathon" target="_blank" className="hover:text-neutral-500 transition-all">
-							
+
 						</a>
 					</p>
 					<p>Made by Eswap Team <strong></strong>. All right reserved.</p>

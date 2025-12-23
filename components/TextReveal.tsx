@@ -10,8 +10,8 @@ export default function TextReveal() {
 				<br />
 				<span>Freedom</span>
 				<br />
-				
-				
+
+
 			</h1>
 		</div>
 	);
