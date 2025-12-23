@@ -1,0 +1,15 @@
+{
+  "miniapp": {
+    "version": "1",
+    "name": "eswap",
+    "homeUrl": "https://eswap.dexkit.app/",
+    "iconUrl": "https://eswap.dexkit.app/favicon.ico",
+    "splashImageUrl": "https://eswap.dexkit.app/logo.png",
+    "splashBackgroundColor": "#ffffff",
+    "subtitle": "eswap dex",
+    "description": "eswap dex",
+    "primaryCategory": "finance",
+    "tags": ["defi", "dex", "swap"],
+    "heroImageUrl": "https://eswap.dexkit.app/logo.png"
+  }
+}
